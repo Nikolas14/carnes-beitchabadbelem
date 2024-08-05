@@ -44,7 +44,7 @@ interface CardProps {
   }
 
   const Card: React.FC<CardProps> = ({  product, onClick }) => {
-    const { title, description, price, img } = product;
+    const {id, title, description, price, img } = product;
 
     const handleClick: React.MouseEventHandler<HTMLDivElement> = (event) => {
         if (onClick) {

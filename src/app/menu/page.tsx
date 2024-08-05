@@ -5,6 +5,7 @@ import Card from './components/Card'
 import data from '../../data/data'
 import styled from 'styled-components'
 import { IProduct } from '@/interface/IProduct'
+import { useRouter } from 'next/navigation'
 
 const ListContainer = styled.div`
     display: flex;
@@ -14,17 +15,18 @@ const ListContainer = styled.div`
 `
 const Menu = () => {
     const dataList = data
+    const nav = useRouter()
 
     const handleProductClick = (product: IProduct) => {
         console.log('Produto clicado:', product);
-        // Faça algo com o produto clicado
+        nav.push('/detail/')
       };
 
   return (
     <ListContainer>
         <h2>Menu</h2>
         {dataList.map((product , index)=>
-                    <Card key={index} product={product} onClick={handleProductClick} />
+            <Card key={product.id} product={product} onClick={handleProductClick} />
         )}
     </ListContainer>
   )
