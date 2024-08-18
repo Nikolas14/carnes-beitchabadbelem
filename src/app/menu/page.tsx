@@ -8,8 +8,6 @@ import { IProduct } from '@/interface/IProduct'
 import { useRouter } from 'next/navigation'
 
 const ListContainer = styled.div`
-    display: flex;
-    flex-direction: column;
     align-items: center;
     gap: 1em;
 `
@@ -19,13 +17,13 @@ const Menu = () => {
 
     const handleProductClick = (product: IProduct) => {
         console.log('Produto clicado:', product);
-        nav.push('/detail/')
+        nav.push('/detail/'+product.id)
       };
 
   return (
     <ListContainer>
         <h2>Menu</h2>
-        {dataList.map((product , index)=>
+        {dataList.map((product)=>
             <Card key={product.id} product={product} onClick={handleProductClick} />
         )}
     </ListContainer>
