@@ -24,7 +24,7 @@ const Menu = () => {
     <ListContainer>
         <h2>Menu</h2>
         {dataList.map((product)=>
-            <Card key={product.id} product={product} onClick={handleProductClick} />
+            <Card key={product.id} product={product} />
         )}
     </ListContainer>
   )
